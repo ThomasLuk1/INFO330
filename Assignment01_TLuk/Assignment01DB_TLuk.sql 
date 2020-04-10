@@ -1,0 +1,41 @@
+/***********************************************************************************
+Title: INFO 330 - Module01: Assignment 01
+Desc: Creates a database to hold information on various projects
+Dev: Thomas Luk
+Changelog: When, Who, What
+20200113, Thomas Luk, Created Assignment01 SQL Script
+***********************************************************************************/
+use master;
+GO
+if Exists(Select Name From sysdatabases Where name = 'Assignment01DB_TLuk')
+BEGIN
+    Drop Database Assignment01DB_TLuk
+END
+
+Create Database Assignment01DB_TLuk
+Go
+Use Assignment01DB_TLuk
+Go
+
+Create Table dbo.Projects (
+    ProjectID int Primary Key,  
+    ProjectName nvarchar(100),
+    ProjectDescription nvarchar(100)
+);
+Go
+
+Create Table dbo.Employees (
+    EmployeeID int Primary Key,
+    EmployeeFirstName nvarchar(100),
+    EmployeeLastName nvarchar(100)
+);
+Go
+
+Create Table dbo.Work (
+    WorkID int Primary Key,
+    Date nvarchar(100),
+    Hours nvarchar(100),
+    EmployeeID int,
+    ProjectID int
+);
+Go
